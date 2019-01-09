@@ -57,4 +57,5 @@ if(Serial.available() > 0){
         
    
 }
+  delay(1);
 }
