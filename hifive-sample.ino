@@ -30,19 +30,19 @@ if(Serial.available() > 0){
     // input available byte
     incommingByte = Serial.read();
 
-      if(incommingByte == '1'){
+      if(incommingByte == READ_PINS){
         
         inputMsg=START_MSG;
         Serial.write('0');
         
-      }else if(incommingByte == '2'){
+      }else if(incommingByte == WRITE_ANALOG){
         
         outputByte = Serial.read();
-        if(outputByte == '0'){
+        if(outputByte == 0){
           analogWrite(LED_BUILTIN, 255);
-        }else if(outputByte == '1'){
+        }else if(outputByte == 1){
           analogWrite(LED_BUILTIN, 0);
-        }else if(outputByte == '2'){
+        }else if(outputByte == 2){
           for(i=0;i<256;i++){
           analogWrite(LED_BUILTIN, i);
           delay(3);
@@ -57,5 +57,5 @@ if(Serial.available() > 0){
         
    
 }
-  delay(1);
+delay(1);
 }
